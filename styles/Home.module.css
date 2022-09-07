@@ -75,6 +75,14 @@
   color: red;
 }
 
+.logos {
+  filter: drop-shadow(0 0 2px white)
+          drop-shadow(1px 1px 0 white)
+          drop-shadow(-1px 1px 0 white)
+          drop-shadow(1px -1px 0 white)
+          drop-shadow(-1px -1px 0 white)
+}
+
 @media screen and (max-width: 1010px) {
   .table {
     display: block;

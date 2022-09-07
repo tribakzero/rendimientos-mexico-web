@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "date-fns": "^2.29.2",
     "msw": "^0.44.2",
     "next": "12.2.3",
     "react": "18.2.0",

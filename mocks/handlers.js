@@ -36,6 +36,7 @@ export const handlers = [
           },
           {
             name: 'finsus',
+            '1': 4.5,
             '28': 5.5,
             '60': 6.5,
             '90': 7.5,

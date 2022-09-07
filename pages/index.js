@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import Image from 'next/image'
+import { formatRelative, formatDistance } from 'date-fns'
+import { es } from 'date-fns/locale'
 import styles from '../styles/Home.module.css'
 
 export default function Home({data = {}}) {
@@ -46,7 +49,16 @@ export default function Home({data = {}}) {
                 <tbody>
                   {data.instruments.map(instrument => (
                     <tr key={instrument.name}>
-                      <td>{instrument.name}</td>
+                      <td>
+                        <Image
+                          src={`/images/${instrument.name}.png`}
+                          alt={instrument.name}
+                          title={instrument.name}
+                          className={styles.logos}
+                          width="100"
+                          height="50"
+                        />
+                      </td>
                       <td><Rate value={instrument['1']} /></td>
                       <td><Rate value={instrument['7']} /></td>
                       <td><Rate value={instrument['28']} /></td>
@@ -61,6 +73,17 @@ export default function Home({data = {}}) {
                 </tbody>
               </table>
               <div className={styles.tableFooter}>
+                <span>
+                  <strong>Última actualización:</strong>
+                  {' '}
+                  {
+                    formatRelative(new Date(data.timestamp._seconds * 1000), new Date(), { locale: es })
+                  }
+                  {' '}
+                  ({
+                    formatDistance(new Date(data.timestamp._seconds * 1000), new Date(), { locale: es, addSuffix: true })
+                  })
+                </span>
                 <span><strong>Inflación actual:</strong> {data.inflation}%</span>
                 <span><strong className={styles.belowInflation}>Rojo:</strong> Rendimiento inferior o igual a la inflación.</span>
                 <span><strong className={styles.aboveInflation}>Verde:</strong> Rendimiento superior a la inflación.</span>
