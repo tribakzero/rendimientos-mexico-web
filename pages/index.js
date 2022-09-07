@@ -57,6 +57,7 @@ export default function Home({data = {}}) {
                           className={styles.logos}
                           width="100"
                           height="50"
+                          unoptimized
                         />
                       </td>
                       <td><Rate value={instrument['1']} /></td>
