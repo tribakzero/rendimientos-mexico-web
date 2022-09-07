@@ -51,13 +51,12 @@ export default function Home({data = {}}) {
                     <tr key={instrument.name}>
                       <td>
                         <Image
-                          src={`/images/${instrument.name}.png`}
+                          src={`/images/${instrument.name.toLowerCase()}.png`}
                           alt={instrument.name}
                           title={instrument.name}
                           className={styles.logos}
                           width="100"
                           height="50"
-                          unoptimized
                         />
                       </td>
                       <td><Rate value={instrument['1']} /></td>
