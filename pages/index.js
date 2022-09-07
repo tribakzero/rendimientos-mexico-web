@@ -51,7 +51,7 @@ export default function Home({data = {}}) {
                     <tr key={instrument.name}>
                       <td>
                         <Image
-                          src={`/images/${instrument.name.toLowerCase()}.png`}
+                          src={`/images/${instrument.name.replace(/[\s\,\.]/g, '').toLowerCase()}.png`}
                           alt={instrument.name}
                           title={instrument.name}
                           className={styles.logos}
